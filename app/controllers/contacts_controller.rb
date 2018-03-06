@@ -8,4 +8,18 @@ class ContactsController < ApplicationController
       phone_number: contact.phone_number
     }
   end
+
+  def show_all_contacts_method
+    contacts = Contact.all
+    contact_hashes = []
+    contacts.each do |contact|
+      contact_hashes << {
+        first_name: contact.first_name,
+        last_name: contact.last_name,
+        email: contact.email,
+        phone_number: contact.phone_number
+      }
+    end
+    render json: contact_hashes
+  end
 end
