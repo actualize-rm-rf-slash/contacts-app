@@ -11,9 +11,8 @@ class ContactsController < ApplicationController
 
   def show_all_contacts_method
     contacts = Contact.all
-    contact_hashes = []
-    contacts.each do |contact|
-      contact_hashes << {
+    contact_hashes = contacts.map do |contact|
+      {
         first_name: contact.first_name,
         last_name: contact.last_name,
         email: contact.email,
