@@ -1,4 +1,4 @@
-class ContactsController < ApplicationController
+class V1::ContactsController < ApplicationController
   def show_one_contact_method
     contact = Contact.first
     render json: contact.as_json
