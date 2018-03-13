@@ -16,7 +16,9 @@ if input_option == "1"
 elsif input_option == "2"
   params = {
     first_name: "Peter",
+    middle_name: "Xavier",
     last_name: "Jang",
+    bio: "This is a text",
     email: "peter@email.com",
     phone_number: "232343243"
   }
@@ -34,7 +36,9 @@ elsif input_option == "4"
   contact_id = gets.chomp
   params = {
     first_name: "UpdatedFirstName",
+    middle_name: "UpdatedMiddleName",
     last_name: "UpdatedLastName",
+    bio: "UpdatedBio",
     email: "updatedemail@email.com",
     phone_number: "0000000"
   }
