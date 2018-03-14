@@ -15,11 +15,10 @@ if input_option == "1"
   puts JSON.pretty_generate(contacts)
 elsif input_option == "2"
   params = {
-    first_name: "Peter",
     middle_name: "Xavier",
     last_name: "Jang",
     bio: "This is a text",
-    email: "peter@email.com",
+    email: "saronemail.com",
     phone_number: "232343243"
   }
   response = Unirest.post("http://localhost:3000/v1/contacts", parameters: params)
@@ -39,7 +38,7 @@ elsif input_option == "4"
     middle_name: "UpdatedMiddleName",
     last_name: "UpdatedLastName",
     bio: "UpdatedBio",
-    email: "updatedemail@email.com",
+    email: "saron@email.com",
     phone_number: "0000000"
   }
   response = Unirest.patch("http://localhost:3000/v1/contacts/#{contact_id}", parameters: params)
