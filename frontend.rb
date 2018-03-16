@@ -3,6 +3,7 @@ require "unirest"
 system "clear"
 puts "Choose an option:"
 puts "[1] Show all contacts"
+puts "  [1.1] Search contacts that contain 'an'"
 puts "[2] Create a contact"
 puts "[3] Show one contact"
 puts "[4] Update a contact"
@@ -11,6 +12,10 @@ puts "[5] Delete a contacts"
 input_option = gets.chomp
 if input_option == "1"
   response = Unirest.get("http://localhost:3000/v1/contacts")
+  contacts = response.body
+  puts JSON.pretty_generate(contacts)
+elsif input_option == "1.1"
+  response = Unirest.get("http://localhost:3000/v1/contacts?query=an")
   contacts = response.body
   puts JSON.pretty_generate(contacts)
 elsif input_option == "2"
