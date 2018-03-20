@@ -19,7 +19,23 @@ if input_option == "1"
   )
   p response.body
 elsif input_option == "2"
+  response = Unirest.post(
+    "http://localhost:3000/user_token",
+    parameters: {
+      auth: {
+        email: "peter@email.com",
+        password: "password"
+      }
+    }
+  )
+  # Save the JSON web token from the response
+  jwt = response.body["jwt"]
+  # Include the jwt in the headers of any future web requests
+  Unirest.default_header("Authorization", "Bearer #{jwt}")
+  p jwt
 elsif input_option == "3"
+  jwt = ""
+  Unirest.clear_default_headers()
 end
 
 puts "Press enter to continue"
