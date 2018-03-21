@@ -62,10 +62,11 @@ elsif input_option == "1.1"
   puts JSON.pretty_generate(contacts)
 elsif input_option == "2"
   params = {
+    first_name: "Martha",
     middle_name: "Xavier",
     last_name: "Jang",
     bio: "This is a text",
-    email: "saronemail.com",
+    email: "martha@email.com",
     phone_number: "232343243"
   }
   response = Unirest.post("http://localhost:3000/v1/contacts", parameters: params)
